@@ -9,16 +9,12 @@ export default function PostCard({ post }) {
   return (
     <Link href={`/fix/${post.id}`} style={{ textDecoration: 'none' }}>
       <div style={{
-        background: 'white', border: '1px solid var(--border)', borderRadius: 12,
+        background: 'white', border: '1px solid #d8e8db', borderRadius: 12,
         padding: '20px 24px', display: 'flex', gap: 16, alignItems: 'flex-start',
-        cursor: 'pointer', transition: 'all 0.15s'
-      }}
-        onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--teal)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
-        onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'none' }}
-      >
+      }}>
         <div style={{
           width: 72, height: 72, borderRadius: 8, flexShrink: 0,
-          background: 'var(--surface)', border: '1px solid var(--border)',
+          background: '#f6faf7', border: '1px solid #d8e8db',
           display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28
         }}>{icon}</div>
 
@@ -31,20 +27,20 @@ export default function PostCard({ post }) {
             }}>{post.status === 'solved' ? '✓ Solved' : 'Unsolved'}</span>
             <span style={{
               fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 99,
-              background: 'var(--teal-light)', color: '#077a54'
+              background: '#e0f5ed', color: '#077a54'
             }}>{post.category}</span>
           </div>
 
           <div style={{
             fontFamily: 'Syne, sans-serif', fontSize: 16, fontWeight: 700,
-            color: 'var(--ink)', marginBottom: 6, lineHeight: 1.3
+            color: '#111810', marginBottom: 6, lineHeight: 1.3
           }}>{post.title}</div>
 
-          <div style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 10, lineHeight: 1.5 }}>
+          <div style={{ fontSize: 13, color: '#6b7d6e', marginBottom: 10, lineHeight: 1.5 }}>
             {post.description?.substring(0, 120)}...
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 12, color: 'var(--muted)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 12, color: '#6b7d6e' }}>
             <span>💬 {guideCount} guide{guideCount !== 1 ? 's' : ''}</span>
             <span style={{ marginLeft: 'auto' }}>
               {post.author} · {new Date(post.created_at).toLocaleDateString()}
@@ -54,4 +50,4 @@ export default function PostCard({ post }) {
       </div>
     </Link>
   )
-                      }
+  }
