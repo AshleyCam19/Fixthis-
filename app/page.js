@@ -194,3 +194,42 @@ export default async function Home() {
             <a key={c.name} href={`/search?q=${c.name}`}>
               <div style={{
                 background: '#fff', border: '0.5px solid #e8edf2', borderRadius: 12,
+                padding: '18px 10px', textAlign: 'center'
+              }}>
+                <div style={{ fontSize: 28, marginBottom: 8 }}>{c.icon}</div>
+                <div style={{ fontSize: 12, fontWeight: 600, color: '#64748b' }}>{c.name}</div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* POSTS */}
+        <div style={{ textAlign: 'center', marginBottom: 20 }}>
+          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 6 }}>
+            <span style={{ flex: 1, maxWidth: 60, height: '0.5px', background: '#16a34a', display: 'inline-block' }}/>
+            Latest fixes
+            <span style={{ flex: 1, maxWidth: 60, height: '0.5px', background: '#16a34a', display: 'inline-block' }}/>
+          </div>
+          <div style={{ fontSize: 22, fontWeight: 700, color: '#0f172a', letterSpacing: '-0.02em' }}>Recent fix requests</div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {postsWithCount.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '60px 20px', color: '#94a3b8' }}>
+              <div style={{ fontSize: 48, marginBottom: 16 }}>🔧</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: '#0f172a', marginBottom: 8 }}>No fix requests yet</div>
+              <div style={{ fontSize: 14 }}>Be the first to post a fix request!</div>
+            </div>
+          ) : (
+            postsWithCount.map(post => <PostCard key={post.id} post={post} />)
+          )}
+        </div>
+      </div>
+
+      <footer style={{ background: '#071407', padding: '40px 2rem', textAlign: 'center' }}>
+        <div style={{ fontSize: 22, fontWeight: 800, color: '#4ade80', marginBottom: 8, letterSpacing: '-0.02em' }}>FixThis</div>
+        <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)' }}>Crowd-sourced repair guides for everyday broken things.</div>
+      </footer>
+    </>
+  )
+    }
