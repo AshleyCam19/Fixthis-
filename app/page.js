@@ -143,7 +143,7 @@ export default async function Home() {
           </p>
 
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-<a href="#post" onClick={(e) => { e.preventDefault(); document.getElementById('open-post-modal')?.click() }} style={{
+<a href="/search" style={{
   display: 'inline-flex', alignItems: 'center', gap: 8,
   background: '#16a34a', color: '#fff',
   padding: '12px 24px', borderRadius: 10, fontSize: 14,
