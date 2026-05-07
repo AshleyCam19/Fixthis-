@@ -143,7 +143,7 @@ export default async function Home() {
           </p>
 
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <a href="/post" style={{
+            <a href="/" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               background: '#16a34a', color: '#fff', border: 'none',
               padding: '12px 24px', borderRadius: 10, fontSize: 14,
