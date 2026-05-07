@@ -62,7 +62,7 @@ export default function Navbar() {
 
           {user ? (
             <>
-              <button id="open-post-modal" onClick={() => setShowPost(true)} style={{
+              <button onClick={() => setShowPost(true)} style={{
                 background: '#16a34a', color: '#fff', border: 'none',
                 padding: '8px 18px', borderRadius: 8, fontSize: 13,
                 fontWeight: 700, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
