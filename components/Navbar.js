@@ -1,10 +1,29 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PostModal from './PostModal'
+import AuthModal from './AuthModal'
+import { supabase } from '../lib/supabase'
 
 export default function Navbar() {
   const [showPost, setShowPost] = useState(false)
+  const [showAuth, setShowAuth] = useState(false)
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null)
+    })
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+    })
+    return () => subscription.unsubscribe()
+  }, [])
+
+  async function handleLogout() {
+    await supabase.auth.signOut()
+    setUser(null)
+  }
 
   return (
     <>
@@ -40,20 +59,49 @@ export default function Navbar() {
             fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.6)',
             textDecoration: 'none', padding: '7px 12px', borderRadius: 8
           }}>Browse</Link>
-          <Link href="/profile" style={{
-            fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.6)',
-            textDecoration: 'none', padding: '7px 12px', borderRadius: 8
-          }}>Profile</Link>
-          <button onClick={() => setShowPost(true)} style={{
-            background: '#16a34a', color: '#fff', border: 'none',
-            padding: '8px 18px', borderRadius: 8, fontSize: 13,
-            fontWeight: 700, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
-            marginLeft: 4
-          }}>+ Post a Fix</button>
+
+          {user ? (
+            <>
+              <button onClick={() => setShowPost(true)} style={{
+                background: '#16a34a', color: '#fff', border: 'none',
+                padding: '8px 18px', borderRadius: 8, fontSize: 13,
+                fontWeight: 700, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
+                marginLeft: 4
+              }}>+ Post a Fix</button>
+              <button onClick={handleLogout} style={{
+                background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)',
+                border: '0.5px solid rgba(255,255,255,0.15)',
+                padding: '8px 14px', borderRadius: 8, fontSize: 12,
+                fontWeight: 500, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
+                marginLeft: 4
+              }}>Log out</button>
+            </>
+          ) : (
+            <>
+              <button onClick={() => setShowAuth(true)} style={{
+                background: 'transparent', color: 'rgba(255,255,255,0.6)',
+                border: 'none', padding: '8px 14px', borderRadius: 8,
+                fontSize: 13, fontWeight: 500, cursor: 'pointer',
+                fontFamily: 'Inter, sans-serif'
+              }}>Log in</button>
+              <button onClick={() => setShowAuth(true)} style={{
+                background: '#16a34a', color: '#fff', border: 'none',
+                padding: '8px 18px', borderRadius: 8, fontSize: 13,
+                fontWeight: 700, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
+                marginLeft: 4
+              }}>Sign up</button>
+            </>
+          )}
         </div>
       </nav>
 
       {showPost && <PostModal onClose={() => setShowPost(false)} />}
+      {showAuth && (
+        <AuthModal
+          onClose={() => setShowAuth(false)}
+          onSuccess={() => setShowPost(true)}
+        />
+      )}
     </>
   )
-                              }
+              }
