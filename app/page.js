@@ -143,23 +143,24 @@ export default async function Home() {
           </p>
 
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <a href="#" onClick="document.querySelector('nav button').click(); return false;" style={{
-  display: 'inline-flex', alignItems: 'center', gap: 8,
-  background: '#16a34a', color: '#fff', border: 'none',
-  padding: '12px 24px', borderRadius: 10, fontSize: 14,
-  fontWeight: 700
-}}>
-  🔧 Post a Fix Request
-</a>
-            <a href="/search" style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              background: 'rgba(255,255,255,0.08)', color: '#fff',
-              border: '0.5px solid rgba(255,255,255,0.22)',
-              padding: '12px 20px', borderRadius: 10, fontSize: 14, fontWeight: 500
-            }}>
-              Browse Fixes →
-            </a>
-          </div>
+  <a href="/search" style={{
+    display: 'inline-flex', alignItems: 'center', gap: 8,
+    background: '#16a34a', color: '#fff',
+    padding: '12px 24px', borderRadius: 10, fontSize: 14,
+    fontWeight: 700, textDecoration: 'none'
+  }}>
+    🔧 Post a Fix Request
+  </a>
+  <a href="/search" style={{
+    display: 'inline-flex', alignItems: 'center', gap: 8,
+    background: 'rgba(255,255,255,0.08)', color: '#fff',
+    border: '0.5px solid rgba(255,255,255,0.22)',
+    padding: '12px 20px', borderRadius: 10, fontSize: 14,
+    fontWeight: 500, textDecoration: 'none'
+  }}>
+    Browse Fixes →
+  </a>
+</div>
         </div>
       </div>
 
