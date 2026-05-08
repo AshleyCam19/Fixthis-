@@ -2,7 +2,7 @@ import { supabase } from '../lib/supabase'
 import Navbar from '../components/Navbar'
 import PostCard from '../components/PostCard'
 import HomeSearch from '../components/HomeSearch'
-
+import HeroButtons from '../components/HeroButtons'
 const CATEGORIES = [
   { name: 'Appliances', icon: '🫧' },
   { name: 'Electronics', icon: '📱' },
@@ -142,7 +142,7 @@ export default async function Home() {
             Post what's broken. Get step-by-step repair guides from people who've fixed the same thing.
           </p>
 
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          <HeroButtons />
 <a href="/search" style={{
   display: 'inline-flex', alignItems: 'center', gap: 8,
   background: '#16a34a', color: '#fff',
