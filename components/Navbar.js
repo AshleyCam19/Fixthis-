@@ -62,12 +62,7 @@ export default function Navbar() {
 
           {user ? (
             <>
-              <button onClick={() => setShowPost(true)} style={{
-                background: '#16a34a', color: '#fff', border: 'none',
-                padding: '8px 18px', borderRadius: 8, fontSize: 13,
-                fontWeight: 700, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
-                marginLeft: 4
-              }}>+ Post a Fix</button>
+            
               <button onClick={handleLogout} style={{
                 background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)',
                 border: '0.5px solid rgba(255,255,255,0.15)',
