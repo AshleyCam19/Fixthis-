@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import PostCard from '../components/PostCard'
 import HomeSearch from '../components/HomeSearch'
 import HeroButtons from '../components/HeroButtons'
+
 const CATEGORIES = [
   { name: 'Appliances', icon: '🫧' },
   { name: 'Electronics', icon: '📱' },
@@ -46,8 +47,6 @@ export default async function Home() {
             <line x1="600" y1="0" x2="600" y2="340" stroke="#0f220f" strokeWidth="0.5"/>
             <line x1="800" y1="0" x2="800" y2="340" stroke="#0f220f" strokeWidth="0.5"/>
             <line x1="1000" y1="0" x2="1000" y2="340" stroke="#0f220f" strokeWidth="0.5"/>
-
-            {/* HAMMER */}
             <g transform="translate(180, 200) rotate(-35)">
               <rect x="-8" y="-10" width="16" height="120" rx="6" fill="#22532a"/>
               <rect x="-28" y="-52" width="56" height="38" rx="6" fill="#22c55e"/>
@@ -55,8 +54,6 @@ export default async function Home() {
               <rect x="-22" y="-47" width="14" height="5" rx="2" fill="#86efac" opacity="0.5"/>
             </g>
             <circle cx="180" cy="180" r="70" fill="#16a34a" opacity="0.07"/>
-
-            {/* WRENCH */}
             <g transform="translate(650, 130) rotate(25)">
               <rect x="-9" y="15" width="18" height="110" rx="7" fill="#166534"/>
               <ellipse cx="0" cy="8" rx="24" ry="20" fill="#22c55e"/>
@@ -66,8 +63,6 @@ export default async function Home() {
               <ellipse cx="-6" cy="0" rx="4" ry="5" fill="#4ade80" opacity="0.3"/>
             </g>
             <circle cx="650" cy="120" r="60" fill="#16a34a" opacity="0.07"/>
-
-            {/* SCREWDRIVER */}
             <g transform="translate(950, 80) rotate(15)">
               <rect x="-13" y="-18" width="26" height="55" rx="10" fill="#22c55e"/>
               <rect x="-11" y="-16" width="22" height="51" rx="8" fill="#4ade80" opacity="0.3"/>
@@ -79,8 +74,6 @@ export default async function Home() {
               <rect x="-9" y="-14" width="7" height="25" rx="4" fill="#86efac" opacity="0.35"/>
             </g>
             <circle cx="950" cy="120" r="65" fill="#16a34a" opacity="0.06"/>
-
-            {/* PLIERS */}
             <g transform="translate(80, 110) rotate(-20)">
               <rect x="-14" y="25" width="12" height="85" rx="5" fill="#166534"/>
               <rect x="2" y="25" width="12" height="85" rx="5" fill="#22532a"/>
@@ -90,8 +83,6 @@ export default async function Home() {
               <path d="M12,25 L22,-5 L17,-9 L5,22 Z" fill="#16a34a"/>
             </g>
             <circle cx="80" cy="110" r="55" fill="#16a34a" opacity="0.06"/>
-
-            {/* TAPE MEASURE */}
             <g transform="translate(430, 190) rotate(-10)">
               <rect x="-28" y="-22" width="56" height="44" rx="10" fill="#22c55e"/>
               <rect x="-26" y="-20" width="52" height="40" rx="8" fill="#16a34a"/>
@@ -102,8 +93,6 @@ export default async function Home() {
               <rect x="-24" y="-18" width="18" height="8" rx="4" fill="#86efac" opacity="0.3"/>
             </g>
             <circle cx="430" cy="185" r="55" fill="#16a34a" opacity="0.07"/>
-
-            {/* Sparkles */}
             <circle cx="300" cy="40" r="2" fill="#4ade80" opacity="0.7"/>
             <circle cx="550" cy="70" r="1.5" fill="#4ade80" opacity="0.5"/>
             <circle cx="750" cy="30" r="2.5" fill="#4ade80" opacity="0.6"/>
@@ -143,24 +132,6 @@ export default async function Home() {
           </p>
 
           <HeroButtons />
-<a href="/search" style={{
-  display: 'inline-flex', alignItems: 'center', gap: 8,
-  background: '#16a34a', color: '#fff',
-  padding: '12px 24px', borderRadius: 10, fontSize: 14,
-  fontWeight: 700, textDecoration: 'none', cursor: 'pointer'
-}}>
-  🔧 Post a Fix Request
-</a>
-  <a href="/search" style={{
-    display: 'inline-flex', alignItems: 'center', gap: 8,
-    background: 'rgba(255,255,255,0.08)', color: '#fff',
-    border: '0.5px solid rgba(255,255,255,0.22)',
-    padding: '12px 20px', borderRadius: 10, fontSize: 14,
-    fontWeight: 500, textDecoration: 'none'
-  }}>
-    Browse Fixes →
-  </a>
-</div>
         </div>
       </div>
 
